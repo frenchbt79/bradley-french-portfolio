@@ -1257,7 +1257,7 @@ function work(){
   <section class="sw"><div class="swh"><h2 class="dh">${kern("Selected works","AN")}</h2><button class="more" data-go="">All projects ${AR}</button></div>
   <div class="grid g4">${sel.map(card).join("")}</div></section>
   <section class="phil"><div class="swh"><h2 class="dh">${kern("Design philosophy","AN")}</h2></div>
-  <p><b>Good buildings start with the people inside them.</b> Architecture is something to be experienced, and it begins with what a room does to a person the moment they walk in. People feel good in my buildings, often without knowing why. That feeling is never an accident. It is designed with integrity and heart.</p></section>
+  <p><b>Good buildings start with the people inside them.</b> Design is about feeling. A building is felt before it is understood, in the light of a room, in its proportions, and in the way it welcomes a person through the door. The best buildings put people at ease, often without their knowing why. That feeling is never an accident. It is designed with integrity and heart.</p></section>
   <button class="scr" data-go="" aria-label="Scroll to all projects">${BP3}<span>Scroll to explore<svg viewBox="0 0 22 12" aria-hidden="true"><path d="M1 1l10 9 10-9"/></svg></span>${BP4}</button>
   <section id="ix"></section>`;
   app.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{if(b.dataset.go){filter=b.dataset.go;firm="all";list()}document.getElementById("ix").scrollIntoView({behavior:"smooth"})});
