@@ -1226,7 +1226,7 @@ const BP2=`<div class="bp bp2" aria-hidden="true"><img src="img/sketch.png" alt=
 const BP3=`<svg class="bp bp3" viewBox="0 0 106 124" aria-hidden="true"><path class="a" d="M0 18A106 106 0 0 1 106 124" stroke-width="1.3"/><path class="t" d="M12 74h56M40 46v56"/></svg>`;
 const BP4=`<svg class="bp bp4" viewBox="0 0 252 116" aria-hidden="true"><path class="d" d="M0 34H252M0 82H252M96 0V116M150 0V116M206 0V116"/><path d="M34 116V82H82V34H96M96 18H150V34H206V70H252"/><path class="t" d="M40 116V88H88V40H96M102 24H144V40H200V76H252M96 18V60H150V18M110 60V96H180V70H206M150 60H180"/><path class="t" d="M90 34h12M96 28v12M144 34h12M150 28v12M200 82h12M206 76v12"/></svg>`;
 function work(){
-  const hp=P.find(p=>p.s==="a2h-baptist")||P[0],sel=P.filter(p=>p.sec==="H").slice(0,4),ns=new Set(P.map(p=>p.sec)).size;
+  const hp=P.find(p=>p.s==="a2h-baptist")||P[0],sel=["a2h-milanpb","a2h-covington","x-blue","a2h-baptist"].map(s=>P.find(p=>p.s===s)).filter(Boolean),ns=new Set(P.map(p=>p.sec)).size;
   app.innerHTML=`<section class="hx">${BP1}
   <div class="hxl"><h1><span class="o">${kern("Architecture,","LG")}</span><span>${kern("Interiors and","LG")}</span><span>${kern("Visualization","LG")}</span></h1>
   <p class="lede">Good buildings start with the people inside<br> them. I have spent twenty years designing<br> places for care, learning and work, and<br> showing clients what those places will be<br> before they are built.</p>
@@ -1236,7 +1236,7 @@ function work(){
   <a class="hxi" href="#p-${hp.s}" aria-label="${esc(hp.t)}"><img src="img/${hp.s}/1.jpg" alt="${esc(hp.t)}, exterior rendering"></a><i class="hxg"></i><i class="hxo"></i><i class="hxb"></i>
   <div class="call"><b>${hp.no}</b>${S[hp.sec]}<br>${esc(hp.loc)}${hp.area?`<br>${esc(hp.area)}`:""}</div>
   <svg class="ldr" viewBox="0 0 903 695" aria-hidden="true"><line class="k" x1="530" y1="25" x2="510.7" y2="69"/><line x1="510.7" y1="69" x2="417" y2="283"/></svg><i class="pin" style="left:calc(var(--u)*417);top:calc(var(--u)*283)"></i></div>${BP2}</section>
-  <section class="sw"><div class="swh"><h2 class="dh">${kern("Selected works","AN")}</h2><button class="more" data-go="H">Healthcare projects ${AR}</button></div>
+  <section class="sw"><div class="swh"><h2 class="dh">${kern("Selected works","AN")}</h2><button class="more" data-go="">All projects ${AR}</button></div>
   <div class="grid g4">${sel.map(card).join("")}</div></section>
   <button class="scr" data-go="" aria-label="Scroll to all projects">${BP3}<span>Scroll to explore<svg viewBox="0 0 22 12" aria-hidden="true"><path d="M1 1l10 9 10-9"/></svg></span>${BP4}</button>
   <section id="ix"></section>`;
