@@ -1257,7 +1257,7 @@ function work(){
   <section class="sw"><div class="swh"><h2 class="dh">${kern("Selected works","AN")}</h2><button class="more" data-go="">All projects ${AR}</button></div>
   <div class="grid g4">${sel.map(card).join("")}</div></section>
   <section class="phil"><div class="swh"><h2 class="dh">${kern("Design philosophy","AN")}</h2></div>
-  <p><b>Good buildings start with the people inside them.</b> A building shapes how you feel long before you stop to think about it. That’s what I design for: the way light enters a room, the proportions of a space, the walk in from the front door. Most people never know why a place feels right. I do, and getting it right takes integrity and heart.</p></section>
+  <p><b>Good buildings start with the people inside them.</b> Before anyone reads a sign or notices a detail, they have already felt the room: light across the floor, a ceiling lifting overhead, the quiet at the end of a long hall. Most people never know why a place feels right. I’ve spent my life learning why, and I draw it with integrity and heart.</p></section>
   <button class="scr" data-go="" aria-label="Scroll to all projects">${BP3}<span>Scroll to explore<svg viewBox="0 0 22 12" aria-hidden="true"><path d="M1 1l10 9 10-9"/></svg></span>${BP4}</button>
   <section id="ix"></section>`;
   app.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{if(b.dataset.go){filter=b.dataset.go;firm="all";list()}document.getElementById("ix").scrollIntoView({behavior:"smooth"})});
