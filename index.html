@@ -1075,6 +1075,10 @@ html{font-kerning:normal;text-rendering:optimizeLegibility;font-feature-settings
 .phil p b{font-weight:600}
 @media (max-width:820px){.phil{padding:44px 0 4px}.phil p{font-size:18px;line-height:1.6;max-width:none}}
 @media (max-width:600px){.phil{padding:36px 0 0}.phil p{font-size:16.5px;line-height:1.55}}
+
+/* project animations */
+.vid{display:block;width:100%;max-width:calc(var(--u)*920);aspect-ratio:16/9;background:#111;object-fit:contain}
+@media (max-width:600px){.proj .rs.vrow{display:block!important;grid-template-columns:none!important;padding-top:14px}.proj .rs.vrow .rl{display:block;margin:0 0 8px}.proj .rs.vrow .rc{display:block;width:100%;max-width:none}.proj .rs.vrow .vid{width:100%;max-width:none}}
 </style>
 </head>
 <body>
@@ -1245,7 +1249,7 @@ function work(){
   const hp=P.find(p=>p.s==="a2h-baptist")||P[0],sel=["a2h-milanpb","a2h-covington","x-blue","a2h-baptist"].map(s=>P.find(p=>p.s===s)).filter(Boolean),ns=new Set(P.map(p=>p.sec)).size;
   app.innerHTML=`<section class="hx">${BP1}
   <div class="hxl"><h1><span class="o">${kern("Architecture,","LG")}</span><span>${kern("Interiors and","LG")}</span><span>${kern("Visualization","LG")}</span></h1>
-  <p class="lede">Good buildings start with the people inside<br> them. Architecture is meant to be experienced.<br> People feel good in the buildings I design<br> without knowing why. I know why.</p>
+  <p class="lede">Good buildings start with the people inside<br> them. Architecture is meant to be experienced,<br> and the true measure of a building is how it<br> makes people feel.</p>
   <div class="st"><div><b>${kern(String(P.length),"NM")}</b><span>Projects</span></div><div><b>${ns}</b><span>Sectors</span></div><div><b>${kern("2008","NM")}&thinsp;–&thinsp;${kern("2026","NM")}</b><span>Experience</span></div></div>
   <button class="cta" data-go="">View projects ${AR}</button></div>
   <div class="hxr"><i class="arc"></i><i class="xh" style="left:calc(var(--u)*262);top:calc(var(--u)*138)"></i>
@@ -1281,6 +1285,8 @@ function list(){
   document.getElementById("fs").onchange=e=>{firm=e.target.value;lim={};try{localStorage.setItem("bf-firm",firm)}catch(x){}list()};
 }
 let cur=[],ci=0;
+const VB=/github\.io$/.test(location.hostname)?"":"https://frenchbt79.github.io/bradley-french-portfolio/";
+const V={"a2h-covington":[["a2h-covington","animation"]],"a2h-frayser":[["a2h-frayser","animation"],["a2h-frayser-2","city presentation"]],"str-d227":[["str-d227","animation"]],"bf-flow":[["bf-flow","animation"]],"wha-chee":[["wha-chee","animation"]],"wha-p44":[["wha-p44","animation"]],"wha-meade":[["wha-meade","animation"]],"wha-120":[["wha-120","animation"]],"wha-sal":[["wha-sal","animation"]]};
 const job=(l,c)=>`<div class="rs jb"><div class="rl">${l}</div><div class="rc">${c}</div></div>`;
 const YR=["2026 – now","2020 – 2026","2019 – 2020","2013 – 2019","2008 – 2012","2005 – 2008","2004 – 2005"].map(y=>y.replace(" – ","&thinsp;–&thinsp;"));
 const sec=(l,c)=>`<div class="rs"><div class="rl">${l}</div><div class="rc">${c}</div></div>`;
@@ -1293,7 +1299,7 @@ function project(slug){
   <h2>${kern(p.t,"LG")}</h2>
   <div class="tb"><div><small>Sheet</small>${p.no} / ${SC[p.sec]}</div><div><small>Sector</small>${S[p.sec]}</div><div><small>Firm</small>${esc(F[p.firm]||"Other")}</div><div><small>Year</small>${p.yr}</div></div>
   <div class="hero"><img src="${cur[0]}" alt="${esc(p.t)}, main view" data-i="0" onload="if(this.naturalWidth/this.naturalHeight>1.85)this.style.aspectRatio=this.naturalWidth+'/'+this.naturalHeight"></div>${ph?`<div class="cap">Completed building photography${p.n?", followed by design renderings":""}</div>`:""}
-  </div></div>${sec("project",(p.txt?`<p class="lead">${esc(p.txt)}</p>`:"")+(p.det?`<p><i>${esc(p.sub)}<span class="dot">.</span></i> ${esc(p.det)}</p>`:""))}${job("my role",`<p>${esc(p.role)}</p>`)}${p.loc?job("location",`<p>${esc(p.loc)}</p>`):""}${p.area?job("size",`<p>${esc(p.area)}</p>`):""}${p.rec?job("recognition",`<p>${esc(p.rec)}</p>`):""}${ph?job("photography",`<p>${esc(ph[1])}</p>`):""}
+  </div></div>${sec("project",(p.txt?`<p class="lead">${esc(p.txt)}</p>`:"")+(p.det?`<p><i>${esc(p.sub)}<span class="dot">.</span></i> ${esc(p.det)}</p>`:""))}${(V[p.s]||[]).map(v=>job(v[1],`<video class="vid" controls preload="none" playsinline poster="video/${v[0]}.jpg" src="${VB}video/${v[0]}.mp4"></video>`).replace('class="rs jb"','class="rs jb vrow"')).join("")}${job("my role",`<p>${esc(p.role)}</p>`)}${p.loc?job("location",`<p>${esc(p.loc)}</p>`):""}${p.area?job("size",`<p>${esc(p.area)}</p>`):""}${p.rec?job("recognition",`<p>${esc(p.rec)}</p>`):""}${ph?job("photography",`<p>${esc(ph[1])}</p>`):""}
   <div class="rs"><div class="rl"></div><div class="rc"><div class="gal">${cur.slice(1).map((s,k)=>`<button data-i="${k+1}" aria-label="Open image ${k+2}"><img src="${s}" alt="${esc(p.t)}, view ${k+2}" loading="lazy"></button>`).join("")}</div>
   <div class="pn"><a href="#p-${pv.s}"><small>Previous</small>${esc(pv.t)}</a><a href="#p-${nx.s}" style="text-align:right"><small>Next</small>${esc(nx.t)}</a></div></div></div></article>`;
   app.querySelectorAll("[data-i]").forEach(e=>e.onclick=()=>open(+e.dataset.i));
