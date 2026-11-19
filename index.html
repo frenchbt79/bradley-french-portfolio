@@ -1097,7 +1097,7 @@ html{font-kerning:normal;text-rendering:optimizeLegibility;font-feature-settings
 <script>
 const S={H:"Healthcare",E:"Education",N:"Housing",C:"Civic + Parks",W:"Workplace + Repositioning",L:"Hospitality + Residential",R:"Religious + Cemetery",I:"Industrial + Retail",A:"Aerial Photography"};
 const F={A:"A2H",W:"Wright Heerema Architects",T:"STR Partners",K:"Kenneth E. Giere, Architect",S:"Soraya Planning & Design",C:"Mary Cook Associates",G:"GREC Architects",M:"Mekus Tanager",D:"M2 Design",L:"Lowenstein Durante Architects",B:"Independent"};
-const PH={"a2h-covington":[1,"Courtesy of A2H"],"a2h-didd":[6,"Courtesy of A2H, retouched"],"a2h-orthosouth":[6,"R. Spencer Johnson / The Haven Agency"]};
+const PH={"a2h-covington":[1,"Courtesy of A2H"],"a2h-didd":[6,"Courtesy of A2H, retouched"],"a2h-orthosouth":[6,"R. Spencer Johnson / The Haven Agency"],"m2-wood":[8,"Photographs of the completed house"]};
 const VIZ="3D visualization and presentations";
 const WHA="3D visualization, presentations and drawings";
 const KG="Renderings, presentations and marketing material for the project designer";
@@ -1274,7 +1274,7 @@ const P=[
 ["m2-boiler", "Boilermakers Office", "", "W", "D", "2018", 4, "3D visualization, presentations and drawings", "Office renovation with a curved reception desk under a slatted ceiling. Black-framed sliding glass fronts the conference room and private offices, and an existing arched window lights the corner office."],
 ["m2-vandiver", "Vandiver Kitchen", "", "L", "D", "2020", 3, "3D visualization, presentations and drawings", "Kitchen remodel that opens the kitchen to the living room. A waterfall island faces walnut cabinets and a green tile backsplash."],
 ["m2-kait", "Kaitlyn's Cottage", "Defiance, OH", "H", "D", "2012", 3, "3D visualization and presentations", "A 4,500 SF respite home on the ProMedica Defiance Regional Hospital campus for teens and adults with disabilities, with four private bedrooms and shared dining and activity rooms. Stone chimneys stand at both gables, with a long porch between them."],
-["m2-wood", "Ron Wood Residence", "", "L", "D", "2018", 5, "3D visualization, presentations and drawings", "A three-story house on a steep infill lot. White and gray volumes step back from the street behind a red fin wall, with the garage at grade and balconies above."],
+["m2-wood", "Ron Wood Residence", "", "L", "D", "2016", 5, "3D visualization, presentations and drawings", "A three-story house built on a steep infill lot. White and gray volumes step back from the street behind a red fin wall, with the garage at grade and balconies above. Inside, the red wall carries through the main floor as a single plane that ties the living room, kitchen and open steel stair together. The photographs show the completed house; the renderings and massing studies that led to it follow."],
 ["m2-waymire", "Waymire Residence", "", "L", "D", "2017", 4, "3D visualization, presentations and drawings", "Two houses on one sloping lot, studied in massing models. Each has a red stair tower, gray panels and balconies facing the street."],
 ["m2-gallatin", "1411 Gallatin Avenue", "Nashville, TN", "I", "D", "2018", 4, "3D visualization, presentations and drawings", "A two-story retail building on Gallatin Avenue. Gray metal panels in three tones wrap the upper floor inside a green frame, shown in the design model and in construction."],
 ["kg-sted", "Saint Edward Elevator Addition", "Chicago, IL", "R", "K", "2019", 2, "Renderings, presentations and marketing material for the project designer", "An elevator addition at the side of the church. The new brick tower matches the banding of the nave wall and gives a covered, level entry."],
@@ -1288,9 +1288,10 @@ const P=[
 ["bf-tomi", "Tomi", "Chicago, IL", "L", "", "2018", 4, "Designer: full design of the project and all 3D visualization", "A food hall stall. A skyline cut from white panels rises behind the counter with the name in gold, over a pale wood front and black tile. The street-side views set the stall into photographs of the hall."],
 ["bf-seven", "Seven", "Chicago, IL", "L", "", "2015", 4, "Designer: full design of the project and all 3D visualization", "A nightclub in a brick shell. A long white bar glows red at its base under a wall of framed portraits, and a raised platform with lit glass panels faces the dance floor."],
 ["bf-phoebes", "Phoebe's Cupcakes", "Chicago, IL", "L", "", "2012", 3, "Designer: full design of the project and all 3D visualization", "A cupcake shop. Curved glass cases front the counter under white dome pendants, with blue patterned tile behind and open shelving along the side wall. The millwork was modeled piece by piece for the builder."],
-["grec-1440", "1440 West Washington Aerial Views", "Chicago, IL", "A", "G", "2023", 5, "FAA Part 107 pilot: aerial photography", "Drone photography over 1440 West Washington in Chicago's West Loop for GREC, flown at midday, sunset and dusk to record the skyline views from the site."]
-].map((a,i)=>{const c=(window.COPY||{})[a[0]]||{};return {s:a[0],t:a[1],loc:a[2],sec:a[3],firm:a[4]||({kg:"K",sg:"S",mca:"C",bf:"B"})[a[0].split("-")[0]]||"",yr:a[5],n:a[6],role:a[7],txt:c.txt||a[8],sub:c.sub,det:c.det,area:c.area,rec:a[9],i:i}});
-const ORD="HENCWLRIA",SC={};
+["grec-1440", "1440 West Washington Aerial Views", "Chicago, IL", "A", "G", "2023", 5, "FAA Part 107 pilot: aerial photography", "Drone photography over 1440 West Washington in Chicago's West Loop for GREC, flown at midday, sunset and dusk to record the skyline views from the site."],
+["bf-stu", "Racine Avenue Townhouse", "Chicago, IL", "L", "B", "2017", 7, "Exterior design and all renderings", "Exterior alterations to a three-story residential building on Racine Avenue in Chicago. A new front of light panels and dark brick replaces the original gabled facade, with a three-story window wall bringing daylight deep into each floor. A steel stair and a wood-lined canopy mark the entry, and the outdoor space is fitted out as a room of its own with a wood deck, planters and a dining area. Architect of record: Mohr Architecture."],
+].map((a,i)=>{const c=(window.COPY||{})[a[0]]||{};return {s:a[0],t:a[1],loc:a[2],sec:a[3],firm:a[4]||({kg:"K",sg:"S",mca:"C",bf:"B"})[a[0].split("-")[0]]||"",yr:a[5],n:a[6],role:a[7],txt:c.txt||a[8],sub:c.sub,det:c.det,area:c.area,rec:a[9],i:i}}).filter(p=>p.sec!=="A"); /* Aerial Photography hidden for now: remove this filter and add A back to ORD to restore */
+const ORD="HENCWLRI",SC={};
 P.sort((a,b)=>ORD.indexOf(a.sec)-ORD.indexOf(b.sec)||(PH[b.s]?1:0)-(PH[a.s]?1:0)||b.yr-a.yr);
 P.forEach(p=>{SC[p.sec]=(SC[p.sec]||0)+1;p.no=p.sec+"-"+String(SC[p.sec]).padStart(2,"0")});
 const app=document.getElementById("app"),esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -1418,7 +1419,7 @@ function mdraw(){
 }
 function mui(scroll){
   const {l,on,off}=mdata(),counts={};P.forEach(p=>counts[p.sec]=(counts[p.sec]||0)+1);
-  document.getElementById("mfil").innerHTML=`<button class="chip" data-ms="all" aria-pressed="${msec==="all"}">All<span>${P.length}</span></button>${Object.keys(S).map(k=>`<button class="chip" data-ms="${k}" aria-pressed="${msec===k}">${S[k]}<span>${counts[k]||0}</span></button>`).join("")}`;
+  document.getElementById("mfil").innerHTML=`<button class="chip" data-ms="all" aria-pressed="${msec==="all"}">All<span>${P.length}</span></button>${[...ORD].map(k=>`<button class="chip" data-ms="${k}" aria-pressed="${msec===k}">${S[k]}<span>${counts[k]||0}</span></button>`).join("")}`;
   const nOn=Object.values(on).reduce((a,b)=>a+b.length,0),nOff=l.length-nOn;
   document.getElementById("mcnt").innerHTML=`<b>${l.length}</b> projects &nbsp;·&nbsp; <b>${Object.keys(on).length}</b> places<span class="lg"> on the map</span> &nbsp;·&nbsp; ${nOff} <span class="lg">not mapped</span><span class="sm">unmapped</span>`;
   const row=(n,a,cls)=>`<button class="mli ${cls}" data-p="${esc(n)}" aria-pressed="${n===mplace}"><span>${esc(n)}</span><b>${a.length}</b></button>`,srt=o=>Object.keys(o).sort((a,b)=>o[b].length-o[a].length||a.localeCompare(b));
