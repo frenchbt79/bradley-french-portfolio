@@ -1085,6 +1085,17 @@ html{font-kerning:normal;text-rendering:optimizeLegibility;font-feature-settings
 .vid{display:block;width:100%;max-width:calc(var(--u)*920);aspect-ratio:16/9;background:#111;object-fit:contain}
 @media (max-width:600px){.proj .rs.vrow{display:block!important;grid-template-columns:none!important;padding-top:14px}.proj .rs.vrow .rl{display:block;margin:0 0 8px}.proj .rs.vrow .rc{display:block;width:100%;max-width:none}.proj .rs.vrow .vid{width:100%;max-width:none}}
 .pg .jb li .awd{color:var(--accent);font-weight:600}
+.sw .sqn{order:1}
+.swh .sq{display:flex;align-items:center;gap:calc(var(--u)*9);background:none;margin:calc(var(--u)*30) calc(var(--u)*26) 0 auto;width:calc(var(--u)*230);padding:calc(var(--u)*6) 0 calc(var(--u)*5);border-bottom:1px solid color-mix(in srgb,var(--ink) 45%,transparent)}
+.sq:focus-within{border-bottom-color:var(--accent)}
+.sq svg{flex:none;width:calc(var(--u)*14);height:calc(var(--u)*14);fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round}
+.sq input{flex:1;min-width:0;font:inherit;font-size:calc(var(--u)*12.5);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:transparent;border:0;outline:0;padding:0;appearance:none;-webkit-appearance:none}
+.sq input::placeholder{color:var(--muted);opacity:1}
+.sq input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;width:calc(var(--u)*11);height:calc(var(--u)*11);cursor:pointer;background:linear-gradient(45deg,transparent 46%,var(--ink) 46%,var(--ink) 54%,transparent 54%),linear-gradient(-45deg,transparent 46%,var(--ink) 46%,var(--ink) 54%,transparent 54%)}
+.sqn{margin:calc(var(--u)*-12) 0 calc(var(--u)*20);font-size:calc(var(--u)*12.5);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.sqn b{color:var(--ink)}
+.sqn button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--ink);background:none;border:0;border-bottom:calc(var(--u)*2) solid var(--accent);padding:0 0 calc(var(--u)*2);margin-left:calc(var(--u)*14);cursor:pointer}
+@media (max-width:900px){.swh .sq{order:1;flex:1 1 100%;width:auto;gap:9px;padding:10px 0 8px;margin:0 0 6px}.sq svg{width:15px;height:15px}.sq input{font-size:16px;letter-spacing:.06em}.sq input::-webkit-search-cancel-button{width:13px;height:13px}.sqn{margin:-8px 0 16px;font-size:11.5px;letter-spacing:.14em}.sqn button{border-bottom-width:2px;padding-bottom:2px;margin-left:10px}}
 </style>
 </head>
 <body>
@@ -1327,13 +1338,20 @@ function work(){
   <a class="hxi" href="#p-${hp.s}" aria-label="${esc(hp.t)}"><img src="img/${hp.s}/1.jpg" alt="${esc(hp.t)}, exterior rendering"></a><i class="hxg"></i><i class="hxo"></i><i class="hxb"></i>
   <div class="call"><b>${hp.no}</b>${S[hp.sec]}<br>${esc(hp.loc)}${hp.area?`<br>${esc(hp.area)}`:""}</div>
   <svg class="ldr" viewBox="0 0 903 695" aria-hidden="true"><line class="k" x1="530" y1="25" x2="510.7" y2="69"/><line x1="510.7" y1="69" x2="417" y2="283"/></svg><i class="pin" style="left:calc(var(--u)*417);top:calc(var(--u)*283)"></i></div>${BP2}</section>
-  <section class="sw"><div class="swh"><h2 class="dh">${kern("Selected works","AN")}</h2><button class="more" data-go="" id="swm">All projects ${AR}</button></div>
+  <section class="sw"><div class="swh"><h2 class="dh">${kern("Selected works","AN")}</h2><label class="sq"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.8" cy="6.8" r="4.9"/><path d="M10.5 10.5L15 15"/></svg><input type="search" id="swq" placeholder="Search projects" aria-label="Search projects by name, city, firm, type or year" autocomplete="off" spellcheck="false"></label><button class="more" data-go="" id="swm">All projects ${AR}</button></div>
   <div class="fb swt"><div class="filters" role="group" aria-label="Selected works by project type">${SWT.map(([k,n])=>`<button class="chip" data-sw="${k}" aria-pressed="${k==="F"}">${n}</button>`).join("")}</div></div>
+  <p class="sqn" id="swn" role="status" hidden></p>
   <div class="grid g4" id="swg">${swPick("F").map(card).join("")}</div></section>
   <section class="phil"><div class="swh"><h2 class="dh">${kern("Design philosophy","AN")}</h2></div>
   <p><b>Good buildings start with the people inside them.</b> My work is guided by the belief that architecture is experienced before it is understood, and that the true measure of a building is how it makes people feel. I begin each project by considering how a space should feel to those who use it, then shape the plan, the light and the materials to support that experience. Every decision is carried out with integrity and heart.</p></section>
   <button class="scr" data-go="" aria-label="Scroll to all projects">${BP3}<span>Scroll to explore<svg viewBox="0 0 22 12" aria-hidden="true"><path d="M1 1l10 9 10-9"/></svg></span>${BP4}</button>
   <section id="ix"></section>`;
+  {const q=document.getElementById("swq"),g=document.getElementById("swg"),nn=document.getElementById("swn"),nm=x=>String(x||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""),hay=new Map(P.map(p=>[p,nm([p.t,p.loc,S[p.sec],F[p.firm],p.yr,p.role,p.rec,p.area,p.txt,p.sub,p.det].join(" "))]));let swk="F";
+  const run=all=>{const w=nm(q.value).split(/\s+/).filter(Boolean),tabs=[...app.querySelectorAll("[data-sw]")];if(!w.length){nn.hidden=true;tabs.forEach(x=>x.setAttribute("aria-pressed",x.dataset.sw===swk));g.innerHTML=swPick(swk).map(card).join("");return}
+    const r=P.filter(p=>w.every(x=>hay.get(p).includes(x))),n=all?r.length:Math.min(r.length,12);tabs.forEach(x=>x.setAttribute("aria-pressed","false"));g.innerHTML=r.slice(0,n).map(card).join("");nn.hidden=false;
+    nn.innerHTML=r.length?`<b>${r.length}</b> ${r.length===1?"project matches":"projects match"} \u201c${esc(q.value.trim())}\u201d`+(r.length>n?` <button id="swa">Show all ${r.length}</button>`:""):`No projects match \u201c${esc(q.value.trim())}\u201d. Try a project name, city, firm, type or year.`;const a=document.getElementById("swa");if(a)a.onclick=()=>run(true)};
+  q.oninput=()=>run(false);q.onkeydown=e=>{if(e.key==="Escape"){q.value="";run(false)}};
+  app.querySelectorAll("[data-sw]").forEach(b=>b.addEventListener("click",()=>{swk=b.dataset.sw;q.value="";nn.hidden=true}))}
   app.querySelectorAll("[data-sw]").forEach(b=>b.onclick=()=>{const k=b.dataset.sw;app.querySelectorAll("[data-sw]").forEach(x=>x.setAttribute("aria-pressed",x===b));document.getElementById("swg").innerHTML=swPick(k).map(card).join("");const m=document.getElementById("swm");m.dataset.go=k==="F"?"":k;m.firstChild.textContent=(k==="F"?"All projects":"All "+SWT.find(t=>t[0]===k)[1].toLowerCase())+" "});
   app.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{if(b.dataset.go){by="type";filter=b.dataset.go;firm="all";list()}document.getElementById("ix").scrollIntoView({behavior:"smooth"})});
   list();
